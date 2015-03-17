@@ -38,6 +38,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :test do
   gem 'capybara'
+  gem 'launchy'
 end
 
 group :development, :test, :darwin do
