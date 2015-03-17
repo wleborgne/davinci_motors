@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 feature 'Creating Cars' do
+  let(:car1) { { make: 'Ford', model: 'Mustang',
+                 year: '1967', price: '2300' } }
   scenario 'can create a car' do
     visit '/'
     
     click_link 'New Car'
     
-    fill_in 'Make', with: 'Ford'
-    fill_in 'Model', with: 'Mustang'
-    fill_in 'Year', with: '1967'
-    fill_in 'Price', with: '2300'
+    fill_in 'Make', with: car1[:make]
+    fill_in 'Model', with: car1[:model]
+    fill_in 'Year', with: car1[:year]
+    fill_in 'Price', with: car1[:price]
     
 
     click_button 'Create Car'
