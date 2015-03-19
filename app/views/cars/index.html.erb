@@ -6,6 +6,7 @@
     <th>Model</th>
     <th>Year</th>
     <th>Price</th>
+    <th colspan = "1"</th>
   </tr>
   
   <% @cars.each do |car| %>
@@ -14,6 +15,7 @@
       <td><%= car.model %></td>
       <td><%= car.year %></td>
       <td><%= number_to_currency(car.price) %></td>
+      <td><%= link_to 'Edit', edit_car_path(car) %></td>
     </tr>
   <% end %>
 </table>
