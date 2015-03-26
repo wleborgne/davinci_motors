@@ -27,7 +27,8 @@ class CarsController < ApplicationController
   # PUT/PATCH /cars/1
   def update
     if @car.update(car_params)
-      redirect_to cars_path, notice: 'Car was updated.'
+      redirect_to cars_path, 
+        notice: "#{@car.year} #{@car.make} #{@car.model} created"
 end
   end
   
