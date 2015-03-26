@@ -34,11 +34,12 @@ end
   
   private
 
+  private
   def car_params
     params.require(:car).permit(:make, :year, :model, :price)
   end
-  
-  def set_car
+
+  def find_car
     @car = Car.find(params[:id])
   end
 end
