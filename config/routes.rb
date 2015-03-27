@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   root 'cars#index'
   
   resources :cars
+  resources :users,
+    only: [:create, :new],
+    path_names: { new: 'signup' }
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
