@@ -37,27 +37,27 @@ feature 'User Authentication' do
     expect(page).to have_text("Signed in as #{user.email}")
   end
 
-  scenario 'prevents users from logging in with a bad password' do
+  scenario 'prevents existing users from logging in with bad password' do
     user = FactoryGirl.create(:user)
 
     visit '/'
 
     expect(page).to have_link('Login')
 
-    click_link('Login')
+    click_link 'Login'
 
     fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'BAD_PASSWORD'
+    fill_in 'Password', with: 'NOT_YOUR_PASSWORD'
 
     click_button 'Login'
 
-    expect(page).to have_text('Invalid email or password')
-    expect(page).to_not have_text('Signed in as')
+    expect(page).to have_text("Invalid email or password")
+    expect(page).to_not have_text("Signed in as")
   end
-  
+
   scenario 'allows logged in users to logout' do
     user = FactoryGirl.create(:user)
-    
+
     visit login_path
 
     fill_in 'Email', with: user.email
@@ -66,12 +66,13 @@ feature 'User Authentication' do
     click_button 'Login'
 
     expect(page).to have_text("Signed in as #{user.email}")
+
     expect(page).to have_link('Logout')
-    
+
     click_link('Logout')
-    
-    expect(page).to have_text("#{user.email} has been logged out.")
-    expect(page).to_not have_text("Welcome back #{user.first_name}")
+
+    expect(page).to have_text("#{user.email} has been logged out")
+    expect(page).to_not have_text("Welcome back #{user.first_name.titleized}")
     expect(page).to_not have_text("Signed in as #{user.email}")
   end
 end
