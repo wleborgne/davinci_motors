@@ -40,6 +40,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'shoulda-matchers'
+  gem 'faker'
 end
 
 group :development, :test, :darwin do
