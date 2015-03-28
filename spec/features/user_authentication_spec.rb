@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'User Authentication' do
-  scenario 'allows a user to sign up' do
+  scenario 'allows a user to signup' do
     visit '/'
 
     expect(page).to have_link('Signup')
@@ -26,7 +26,7 @@ feature 'User Authentication' do
 
     expect(page).to have_link('Login')
 
-    click_link('Login')
+    click_link 'Login'
 
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
