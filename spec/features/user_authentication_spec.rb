@@ -72,7 +72,7 @@ feature 'User Authentication' do
     click_link('Logout')
 
     expect(page).to have_text("#{user.email} has been logged out")
-    expect(page).to_not have_text("Welcome back #{user.first_name.titleized}")
+    expect(page).to_not have_text("Welcome back #{user.first_name.titleize}")
     expect(page).to_not have_text("Signed in as #{user.email}")
   end
 end
