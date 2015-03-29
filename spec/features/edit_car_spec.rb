@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 feature 'Edit cars' do
-  let(:car1) { { make: 'Ford', model: 'Mustang',
-    year: '1967', price: '2300' } }
+  let(:car1) { FactoryGirl.attributes_for(:car) }
 
   def fill_create_form(car)
     click_link 'New Car'
