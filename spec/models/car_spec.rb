@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Car, type: :model do
-  # let(:valid_car) { { make: 'Ford', model: 'Mustang',
-  #   year: '1967', price: '2300' } }
 
   it 'is expected to be a Car' do
     car = FactoryGirl.create(:car)
