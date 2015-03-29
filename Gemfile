@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt' # , '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -39,6 +39,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :test do
   gem 'capybara'
   gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'faker'
 end
 
 group :development, :test, :darwin do
