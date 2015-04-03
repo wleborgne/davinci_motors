@@ -29,12 +29,12 @@ RSpec.describe Car, type: :model do
       expect(car.valid?).to be_truthy
     end
 
-    it 'has no price' do
-      no_price_attributes = Hash.new().merge(valid_car)
-      no_price_attributes[:price] = nil
-      car = Car.new(no_price_attributes)
-      expect(car.valid?).to be_truthy
-    end
+    # it 'has no price' do
+    #   no_price_attributes = Hash.new().merge(valid_car)
+    #   no_price_attributes[:price] = nil
+    #   car = Car.new(no_price_attributes)
+    #   expect(car.valid?).to be_truthy
+    # end
   end
 
   context 'is invalid when it' do

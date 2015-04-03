@@ -43,15 +43,15 @@ feature 'Creating Cars' do
     expect(page).to have_content('$15,000.00')
   end
   
-  scenario 'can create a car with no price' do
-    visit '/'
-    
-    # Create attributes for a car with no price
-    no_price = Hash.new().merge(car1)
-    no_price[:price] = nil
-    
-    fill_create_form(no_price)
-
-    expect(page).to have_content('1967 Ford Mustang created')
-  end
+  # scenario 'can create a car with no price' do
+  #   visit '/'
+  #   
+  #   # Create attributes for a car with no price
+  #   no_price = Hash.new().merge(car1)
+  #   no_price[:price] = nil
+  #   
+  #   fill_create_form(no_price)
+  # 
+  #   expect(page).to have_content('1967 Ford Mustang created')
+  # end
 end
