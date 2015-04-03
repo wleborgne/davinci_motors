@@ -15,6 +15,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def my_cars
+    @user = User.find(current_user.id)
+    @my_cars = @user.cars
+  end
+  
   private
 
   def user_params

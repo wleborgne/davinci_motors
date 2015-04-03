@@ -1,9 +1,8 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:edit, :update]
-  
-  # GET /
+  before_action :find_car, only: [:edit, :update, :claim]
+
   def index
-    @cars = Car.all
+    @cars = Car.where(user_id: nil).all
   end
 
   # GET /cars/new
@@ -15,7 +14,20 @@ class CarsController < ApplicationController
   def edit
   end
 
-  # POST /cars
+  def claim
+    @car.user = current_user
+    if @car.save
+      redirect_to root_path,
+        notice: "#{@car.make} #{@car.model} has been moved to your inventory."
+    end
+  end
+
+  def update
+    @car.update(car_params)
+    redirect_to cars_path,
+      notice: "#{@car.year} #{@car.make} #{@car.model} updated"
+  end
+
   def create
     @car = Car.new(car_params)
     if @car.save

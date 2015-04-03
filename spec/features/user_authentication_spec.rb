@@ -75,4 +75,10 @@ feature 'User Authentication' do
     expect(page).to_not have_text("Welcome back #{user.first_name.titleize}")
     expect(page).to_not have_text("Signed in as #{user.email}")
   end
+  
+  scenario 'does not show \'My Cars\' link when not logged in' do
+    visit '/'
+    
+    expect(page).to_not have_link('My Cars')
+  end
 end
