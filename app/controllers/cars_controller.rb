@@ -22,11 +22,11 @@ class CarsController < ApplicationController
     end
   end
 
-  def update
-    @car.update(car_params)
-    redirect_to cars_path,
-      notice: "#{@car.year} #{@car.make} #{@car.model} updated"
-  end
+  #  def update
+  #    @car.update(car_params)
+  #    redirect_to cars_path,
+  #      notice: "#{@car.year} #{@car.make} #{@car.model} updated"
+  #  end
 
   def create
     @car = Car.new(car_params)
@@ -35,15 +35,15 @@ class CarsController < ApplicationController
         notice: "#{@car.year} #{@car.make} #{@car.model} created"
     end
   end
-  
+
   # PUT/PATCH /cars/1
   def update
     if @car.update(car_params)
-      redirect_to cars_path, 
-        notice: "#{@car.year} #{@car.make} #{@car.model} created"
-end
+      redirect_to cars_path,
+        notice: "#{@car.year} #{@car.make} #{@car.model} updated"
+    end
   end
-  
+
   private
 
   private
